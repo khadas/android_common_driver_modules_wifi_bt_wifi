@@ -1,0 +1,20 @@
+load("//build/kernel/kleaf:kernel.bzl", "kernel_module")
+
+kernel_module(
+    name = "wlan",
+    srcs = glob(
+        ["**"],
+        exclude = [
+            "BUILD.bazel",
+            "**/*.bzl",
+            ".git/**",
+        ],
+    ),
+    outs = [
+       "wlan_6174.ko",
+    ],
+    kernel_build = "//common:amlogic",
+    visibility = [
+        "//common:__pkg__",
+    ],
+)
