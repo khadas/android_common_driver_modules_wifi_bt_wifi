@@ -11,8 +11,12 @@ kernel_module(
         ],
     ),
     outs = [
-       "wlan_6174.ko",
-    ],
+        "wlan_6174.ko",
+        "vlsicomm.ko",
+        "aml_sdio.ko",
+        "8822cs.ko",
+        "88x2cu.ko"
+	],
     kernel_build = "//common:amlogic",
     visibility = [
         "//common:__pkg__",

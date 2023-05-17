@@ -62,7 +62,7 @@ WIFI_BUILT_MODULES += $(qca6174_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += w1
-w1_build ?= false
+w1_build ?= true
 w1_modules ?= w1
 w1_src_path ?= $(DRIVER_DIR)/amlogic/w1/wifi
 w1_copy_path ?=
@@ -128,7 +128,7 @@ WIFI_BUILT_MODULES += $(rtl8821cu_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += rtl8822cu
-rtl8822cu_build ?= false
+rtl8822cu_build ?= true
 rtl8822cu_modules ?= rtl8822cu
 rtl8822cu_src_path ?= $(DRIVER_DIR)/realtek/8822cu
 rtl8822cu_copy_path ?=
@@ -150,7 +150,7 @@ WIFI_BUILT_MODULES += $(rtl8822eu_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += rtl8822cs
-rtl8822cs_build ?= false
+rtl8822cs_build ?= true
 rtl8822cs_modules ?= rtl8822cs
 rtl8822cs_src_path ?= $(DRIVER_DIR)/realtek/8822cs
 rtl8822cs_copy_path ?=
