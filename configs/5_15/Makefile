@@ -1,10 +1,10 @@
 define root-dir
 $(strip \
  $(shell bash -c "\
- while [[ ( ! ( -d device/amlogic/common ) ) && ( \`pwd\` != "/" ) ]]; do\
+ while [[ ( ! ( -d common/project/amlogic ) ) && ( \`pwd\` != "/" ) ]]; do\
   cd ..;\
  done;\
- if [[ -d \`pwd\`/device/amlogic/common ]]; then\
+ if [[ -d \`pwd\`/common/project/amlogic ]]; then\
   echo \`pwd\`;\
  else\
   echo "";\
@@ -21,7 +21,7 @@ define to-root-path
 $(strip $(patsubst %/,%,$(shell echo\
  $(shell bash -c "\
  cd $(1);\
- while [[ ( ! ( -d device/amlogic/common ) ) && ( \`pwd\` != "/" ) ]]; do\
+ while [[ ( ! ( -d common/project/amlogic ) ) && ( \`pwd\` != "/" ) ]]; do\
   cd ..;\
   echo \"../\";\
  done;"\
@@ -32,17 +32,17 @@ endef
 ####################################################################################
 #DRIVER_DIR ?= common14-5.15/external_modules/wifi_bt/wifi/wifi_driver
 COMMON_ROOT_DIR := $(shell realpath $(KERNEL_SRC)/..)
-DRIVER_DIR1 := $(shell pwd)/../..
-DRIVER_DIR2 := $(shell realpath $(DRIVER_DIR1))
-DRIVER_DIR := $(subst $(COMMON_ROOT_DIR)/,,$(DRIVER_DIR2))
+#DRIVER_DIR1 := $(shell pwd)/../..
+#DRIVER_DIR2 := $(shell realpath $(DRIVER_DIR1))
+#DRIVER_DIR := $(subst $(COMMON_ROOT_DIR)/,,$(DRIVER_DIR2))
+DRIVER_DIR := driver_modules/wifi_bt/wifi
 ANDROID_ROOT_DIR     ?= $(shell cd $(call to-root-path,.) && pwd)
 KERNEL_TO_ROOT_PATH  ?= $(call to-root-path,$(KERNEL_SRC))
 WIFI_SUPPORT_DRIVERS ?= $(EXTRA_WIFI_SUPPORT_DRIVERS)
 ####################################################################################
 
-PRODUCT_DIR ?= ohm
 WIFI_DEFAULT_CONFIG := $(call cur-dir)/config.mk
-WIFI_TRUNK_CONFIG ?= $(if $(PRODUCT_DIRNAME),$(call root-dir)/$(PRODUCT_DIRNAME)/wifibt.build.config.trunk.mk,$(call root-dir)/device/amlogic/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk)
+WIFI_TRUNK_CONFIG := $(if $(PRODUCT_DIRNAME),$(call root-dir)/common/$(PRODUCT_DIRNAME)/wifibt.build.config.trunk.mk,$(call root-dir)/common/project/amlogic/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk)
 WIFI_BUILD_RULES := $(shell realpath $(call cur-dir)/../driver.mk)
 
 MAKE_ARGS := KERNEL_SRC=$(KERNEL_SRC) O=$(O) LLVM=$(LLVM) DEPMOD=$(DEPMOD)
