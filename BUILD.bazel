@@ -1,4 +1,5 @@
 load("//build/kernel/kleaf:kernel.bzl", "kernel_module")
+load("//driver_modules/wifi_bt/wifi:configs/wifi_ko_list.bzl", "wifi_list")
 
 kernel_module(
     name = "wlan",
@@ -10,13 +11,7 @@ kernel_module(
             ".git/**",
         ],
     ),
-    outs = [
-        "wlan_6174.ko",
-        "vlsicomm.ko",
-        "aml_sdio.ko",
-        "8822cs.ko",
-        "88x2cu.ko"
-	],
+    outs = wifi_list,
     kernel_build = "//common:amlogic",
     visibility = [
         "//common:__pkg__",
