@@ -1,10 +1,15 @@
 ##################################################
 PLATORM_PATH ?= project/amlogic
-WIFI_DEFAULT_CONFIG ?= $(TOP_DIR)/driver_modules/wifi_bt/wifi/configs/5_15/config.mk
 WIFI_BOARD_CONFIG := $(TOP_DIR)/$(PLATORM_PATH)/$(BOARD)/wifibt.build.config.trunk.mk
 LOCAL_CONFIG_BUILD_MODULES = $(CONFIG_WIFI_MODULES)
 LOCAL_WIFI_SUPPORT_DRIVERS = $(WIFI_SUPPORT_DRIVERS)
+ifeq ($(DRIVER_IN_KERNEL),true)
+WIFI_DEFAULT_CONFIG ?= $(TOP_DIR)/common14-5.15/driver_modules/wifi_bt/wifi/configs/5_15/config.mk
+LOCAL_ROOT_DIR := $(TOP_DIR)/common14-5.15/driver_modules/wifi_bt/wifi
+else
+WIFI_DEFAULT_CONFIG ?= $(TOP_DIR)/driver_modules/wifi_bt/wifi/configs/5_15/config.mk
 LOCAL_ROOT_DIR := $(TOP_DIR)/driver_modules/wifi_bt/wifi
+endif
 ##################################################
 
 include $(WIFI_BOARD_CONFIG)
@@ -16,6 +21,7 @@ include $(WIFI_DEFAULT_CONFIG)
 #$(warning CONFIG_WIFI_MODULES = $(LOCAL_CONFIG_BUILD_MODULES))
 #$(warning WIFI_BUILT_MODULES = $(WIFI_BUILT_MODULES))
 #$(warning WIFI_SUPPORT_DRIVERS = $(WIFI_SUPPORT_DRIVERS))
+#$(warning DRIVER_IN_KERNEL = $(DRIVER_IN_KERNEL))
 
 define get-drv-src-path
 $(strip $($(1)_src_path))
@@ -88,5 +94,10 @@ $(warning $(BOARD) config wifi is :$(WIFI_BOTH_MODULES))
 
 PYTHON_MODULE = [$(foreach m,$(WIFI_BOTH_MODULES),'$(m)',)]
 
+ifeq ($(DRIVER_IN_KERNEL),true)
+all:
+	@echo "wifi_modules_list = $(PYTHON_MODULE)" > $(TOP_DIR)/common14-5.15/driver_modules/wifi_bt/wifi/configs/wifi_module_list.bzl
+else
 all:
 	@echo "wifi_modules_list = $(PYTHON_MODULE)" > $(TOP_DIR)/driver_modules/wifi_bt/wifi/configs/wifi_module_list.bzl
+endif
