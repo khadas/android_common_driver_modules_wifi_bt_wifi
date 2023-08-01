@@ -42,7 +42,7 @@ WIFI_SUPPORT_DRIVERS ?= $(EXTRA_WIFI_SUPPORT_DRIVERS)
 ####################################################################################
 
 WIFI_DEFAULT_CONFIG := $(call cur-dir)/config.mk
-WIFI_TRUNK_CONFIG := $(if $(PRODUCT_DIRNAME),$(call root-dir)/$(PRODUCT_DIRNAME)/wifibt.build.config.trunk.mk,$(call root-dir)/project/amlogic/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk)
+#WIFI_TRUNK_CONFIG := $(if $(PRODUCT_DIRNAME),$(call root-dir)/$(PRODUCT_DIRNAME)/wifibt.build.config.trunk.mk,$(call root-dir)/project/amlogic/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk)
 WIFI_BUILD_RULES := $(shell realpath $(call cur-dir)/../driver.mk)
 
 MAKE_ARGS := KERNEL_SRC=$(KERNEL_SRC) O=$(O) LLVM=$(LLVM) DEPMOD=$(DEPMOD)

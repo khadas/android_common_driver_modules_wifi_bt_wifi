@@ -1,5 +1,5 @@
 ##################################################
-PLATORM_PATH ?= project/amlogic
+PLATORM_PATH ?= project/$(MANUFACTURER)
 WIFI_BOARD_CONFIG := $(TOP_DIR)/$(PLATORM_PATH)/$(BOARD)/wifibt.build.config.trunk.mk
 LOCAL_CONFIG_BUILD_MODULES = $(CONFIG_WIFI_MODULES)
 LOCAL_WIFI_SUPPORT_DRIVERS = $(WIFI_SUPPORT_DRIVERS)
