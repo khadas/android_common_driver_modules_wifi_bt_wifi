@@ -28,8 +28,8 @@ def module_to_ko(module):
         wifi_ko_list.append("88x2cu.ko")
     elif module == "rtl8822eu":
         wifi_ko_list.append("8822eu.ko")
-    elif module == "rtl8822cs":
-        wifi_ko_list.append("8822cs.ko")
+    elif module == "rtl8822es":
+        wifi_ko_list.append("8822es.ko")
     elif module == "rtl8821cs":
         wifi_ko_list.append("8821cs.ko")
     elif module == "rtl8852be":
