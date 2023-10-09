@@ -83,6 +83,17 @@ ifeq ($(w2_build),true)
 WIFI_BUILT_MODULES += $(w2_modules)
 endif
 
+WIFI_SUPPORT_DRIVERS += wifi_comm
+wifi_comm_build ?= true
+wifi_comm_modules ?= wifi_comm
+wifi_comm_src_path ?= $(DRIVER_DIR)/amlogic/wifi_comm
+wifi_comm_copy_path ?=
+wifi_comm_build_path ?=
+wifi_comm_args ?=
+ifeq ($(wifi_comm_build),true)
+WIFI_BUILT_MODULES += $(wifi_comm_modules)
+endif
+
 WIFI_SUPPORT_DRIVERS += w1u
 w1u_build ?= false
 w1u_modules ?= w1u
@@ -183,7 +194,7 @@ WIFI_BUILT_MODULES += $(rtl8821cs_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += rtl8852be
-rtl8852be_build ?= false
+rtl8852be_build ?= true
 rtl8852be_modules ?= rtl8852be
 rtl8852be_src_path ?= $(DRIVER_DIR)/realtek/8852be
 rtl8852be_copy_path ?=
