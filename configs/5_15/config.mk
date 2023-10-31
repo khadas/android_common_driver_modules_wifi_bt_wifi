@@ -106,7 +106,7 @@ WIFI_BUILT_MODULES += $(w1u_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += rtl8723du
-rtl8723du_build ?= false
+rtl8723du_build ?= true
 rtl8723du_modules ?= rtl8723du
 rtl8723du_src_path ?= $(DRIVER_DIR)/realtek/8723du
 rtl8723du_copy_path ?=
