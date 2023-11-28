@@ -205,7 +205,7 @@ WIFI_BUILT_MODULES += $(rtl8852be_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += rtl8852bs
-rtl8852bs_build ?= false
+rtl8852bs_build ?= true
 rtl8852bs_modules ?= rtl8852bs
 rtl8852bs_src_path ?= $(DRIVER_DIR)/realtek/8852bs
 rtl8852bs_copy_path ?=
