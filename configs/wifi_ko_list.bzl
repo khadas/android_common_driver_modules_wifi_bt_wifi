@@ -88,6 +88,7 @@ def module_to_ko(module):
         wifi_ko_list.append("moal_iw620.ko")
     elif module == "mt7661":
         wifi_ko_list.append("wlan_mt7663_sdio.ko")
+        wifi_ko_list.append("wlan_mt7663_sdio_prealloc.ko")
     elif module == "mt7668u":
         wifi_ko_list.append("wlan_mt76x8_usb.ko")
     elif module == "mt7668":
@@ -95,6 +96,9 @@ def module_to_ko(module):
     elif module == "mt7663u":
         wifi_ko_list.append("wlan_mt7663_usb.ko")
         wifi_ko_list.append("wlan_mt7663_usb_prealloc.ko")
+    elif module == "mt7663":
+        wifi_ko_list.append("wlan_mt7663_sdio.ko")
+        wifi_ko_list.append("wlan_mt7663_sdio_prealloc.ko")
     elif module == "uwe5621ds":
         wifi_ko_list.append("uwe5621_bsp_sdio.ko")
         wifi_ko_list.append("sprdwl_ng.ko")

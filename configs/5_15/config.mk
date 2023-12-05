@@ -249,12 +249,12 @@ WIFI_BUILT_MODULES += $(iw620_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += mt7661
-mt7661_build ?= false
+mt7661_build ?= true
 mt7661_modules ?= mt7661
-mt7661_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7661
+mt7661_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663u
 mt7661_copy_path ?=
-mt7661_build_path ?= wlan_driver/gen4m
-mt7661_args ?=
+mt7661_build_path ?= wlan_driver
+mt7661_args ?= CONFIG_MTK_SDIO=y
 ifeq ($(mt7661_build),true)
 WIFI_BUILT_MODULES += $(mt7661_modules)
 endif
@@ -282,25 +282,25 @@ WIFI_BUILT_MODULES += $(mt7668u_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += mt7663u
-mt7663u_build ?= false
+mt7663u_build ?= true
 mt7663u_modules ?= mt7663u
 mt7663u_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663u
 mt7663u_copy_path ?=
-mt7663u_build_path ?=
-mt7663u_args ?=
+mt7663u_build_path ?= wlan_driver
+mt7663u_args ?= CONFIG_MTK_USB=y
 ifeq ($(mt7663u_build),true)
 WIFI_BUILT_MODULES += $(mt7663u_modules)
 endif
 
-WIFI_SUPPORT_DRIVERS += mt7663b
-mt7663b_build ?= false
-mt7663b_modules ?= mt7663b
-mt7663b_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663b
-mt7663b_copy_path ?=
-mt7663b_build_path ?=
-mt7663b_args ?=
-ifeq ($(mt7663b_build),true)
-WIFI_BUILT_MODULES += $(mt7663b_modules)
+WIFI_SUPPORT_DRIVERS += mt7663
+mt7663_build ?= true
+mt7663_modules ?= mt7663
+mt7663_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663u
+mt7663_copy_path ?=
+mt7663_build_path ?= wlan_driver
+mt7663_args ?= CONFIG_MTK_SDIO=y
+ifeq ($(mt7663_build),true)
+WIFI_BUILT_MODULES += $(mt7663_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += uwe5621ds
