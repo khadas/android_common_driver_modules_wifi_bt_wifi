@@ -249,7 +249,7 @@ WIFI_BUILT_MODULES += $(iw620_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += mt7661
-mt7661_build ?= true
+mt7661_build ?= false
 mt7661_modules ?= mt7661
 mt7661_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663u
 mt7661_copy_path ?=
@@ -293,7 +293,7 @@ WIFI_BUILT_MODULES += $(mt7663u_modules)
 endif
 
 WIFI_SUPPORT_DRIVERS += mt7663
-mt7663_build ?= true
+mt7663_build ?= false
 mt7663_modules ?= mt7663
 mt7663_src_path ?= $(DRIVER_DIR)/mtk/drivers/mt7663u
 mt7663_copy_path ?=
