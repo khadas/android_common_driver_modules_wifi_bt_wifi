@@ -24,6 +24,8 @@ def module_to_ko(module):
         wifi_ko_list.append("8723du.ko")
     elif module == "rtl8723bu":
         wifi_ko_list.append("8723bu.ko")
+    elif module == "rtl8733bu":
+        wifi_ko_list.append("8733bu.ko")
     elif module == "rtl8821cu":
         wifi_ko_list.append("8821cu.ko")
     elif module == "rtl8822cu":

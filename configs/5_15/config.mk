@@ -127,6 +127,17 @@ ifeq ($(rtl8723bu_build),true)
 WIFI_BUILT_MODULES += $(rtl8723bu_modules)
 endif
 
+WIFI_SUPPORT_DRIVERS += rtl8733bu
+rtl8733bu_build ?= true
+rtl8733bu_modules ?= rtl8733bu
+rtl8733bu_src_path ?= $(DRIVER_DIR)/realtek/8733bu
+rtl8733bu_copy_path ?=
+rtl8733bu_build_path ?= rtl8733BU
+rtl8733bu_args ?=
+ifeq ($(rtl8733bu_build),true)
+WIFI_BUILT_MODULES += $(rtl8733bu_modules)
+endif
+
 WIFI_SUPPORT_DRIVERS += rtl8821cu
 rtl8821cu_build ?= true
 rtl8821cu_modules ?= rtl8821cu
