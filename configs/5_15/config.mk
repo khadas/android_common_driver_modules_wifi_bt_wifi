@@ -335,3 +335,14 @@ qca206x_args ?= AMLOGIC_ANDROID=y
 ifeq ($(qca206x_build),true)
 WIFI_BUILT_MODULES += $(qca206x_modules)
 endif
+
+WIFI_SUPPORT_DRIVERS += atbm603x
+atbm603x_build ?= true
+atbm603x_modules ?= atbm603x
+atbm603x_src_path ?= $(DRIVER_DIR)/atbm/atbm603x
+atbm603x_copy_path ?=
+atbm603x_build_path ?=
+atbm603x_args ?=
+ifeq ($(atbm603x_build),true)
+WIFI_BUILT_MODULES += $(atbm603x_modules)
+endif

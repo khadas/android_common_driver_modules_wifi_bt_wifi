@@ -108,6 +108,8 @@ def module_to_ko(module):
         wifi_ko_list.append("wlan_cnss_core_pcie_206x.ko")
         wifi_ko_list.append("wlan_resident_206x.ko")
         wifi_ko_list.append("wlan_206x.ko")
+    elif module == "atbm603x":
+        wifi_ko_list.append("atbm603x_comb_wifi_usb.ko")
     else:
         print("error",module,"module not support")
 
