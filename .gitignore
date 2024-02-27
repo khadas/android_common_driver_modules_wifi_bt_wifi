@@ -5,5 +5,6 @@ mtk
 qualcomm
 realtek
 unisoc
+atbm
 configs/wifi_module_list.bzl
 
