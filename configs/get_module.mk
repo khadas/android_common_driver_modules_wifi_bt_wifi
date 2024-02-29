@@ -16,6 +16,7 @@ include $(WIFI_BOARD_CONFIG)
 include $(WIFI_DEFAULT_CONFIG)
 
 #$(warning TOP_DIR = $(TOP_DIR))
+#$(warning MANUFACTURER= $(MANUFACTURER))
 #$(warning BOARD = $(BOARD))
 #$(warning WIFI_CONFIG = $(WIFI_BOARD_CONFIG))
 #$(warning CONFIG_WIFI_MODULES = $(LOCAL_CONFIG_BUILD_MODULES))
@@ -97,7 +98,9 @@ PYTHON_MODULE = [$(foreach m,$(WIFI_BOTH_MODULES),'$(m)',)]
 ifeq ($(DRIVER_IN_KERNEL),true)
 all:
 	@echo "wifi_modules_list = $(PYTHON_MODULE)" > $(TOP_DIR)/common14-5.15/driver_modules/wifi_bt/wifi/configs/wifi_module_list.bzl
+	@echo "$(MANUFACTURER)" > $(TOP_DIR)/common14-5.15/driver_modules/wifi_bt/wifi/configs/project.txt
 else
 all:
 	@echo "wifi_modules_list = $(PYTHON_MODULE)" > $(TOP_DIR)/driver_modules/wifi_bt/wifi/configs/wifi_module_list.bzl
+	@echo "$(MANUFACTURER)" > $(TOP_DIR)/driver_modules/wifi_bt/wifi/configs/project.txt
 endif
