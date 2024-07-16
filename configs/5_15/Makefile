@@ -1,10 +1,10 @@
 define root-dir
 $(strip \
  $(shell bash -c "\
- while [[ ( ! ( -d project/amlogic ) ) && ( \`pwd\` != "/" ) ]]; do\
+ while [[ ( ! ( -d project/khadas ) ) && ( \`pwd\` != "/" ) ]]; do\
   cd ..;\
  done;\
- if [[ -d \`pwd\`/project/amlogic ]]; then\
+ if [[ -d \`pwd\`/project/khadas ]]; then\
   echo \`pwd\`;\
  else\
   echo "";\
@@ -21,7 +21,7 @@ define to-root-path
 $(strip $(patsubst %/,%,$(shell echo\
  $(shell bash -c "\
  cd $(1);\
- while [[ ( ! ( -d project/amlogic ) ) && ( \`pwd\` != "/" ) ]]; do\
+ while [[ ( ! ( -d project/khadas ) ) && ( \`pwd\` != "/" ) ]]; do\
   cd ..;\
   echo \"../\";\
  done;"\
@@ -46,7 +46,7 @@ MANUFACTURER := $(shell cat $(call cur-dir)/../project.txt)
 
 WIFI_TRUNK_CONFIG := $(if $(PRODUCT_DIRNAME),$(call root-dir)/$(PRODUCT_DIRNAME)/wifibt.build.config.trunk.mk,\
                      $(if $(MANUFACTURER),$(call root-dir)/project/$(MANUFACTURER)/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk,\
-                     $(call root-dir)/project/amlogic/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk))
+                     $(call root-dir)/project/khadas/$(PRODUCT_DIR)/wifibt.build.config.trunk.mk))
 
 WIFI_BUILD_RULES := $(shell realpath $(call cur-dir)/../driver.mk)
 

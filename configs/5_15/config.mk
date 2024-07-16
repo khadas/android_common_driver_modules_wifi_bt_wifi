@@ -2,7 +2,7 @@ define to-root-path
 $(strip $(patsubst %/,%,$(shell echo\
  $(shell bash -c "\
  cd $(1);\
- while [[ ( ! ( -d project/amlogic ) ) && ( \`pwd\` != "/" ) ]]; do\
+ while [[ ( ! ( -d project/khadas ) ) && ( \`pwd\` != "/" ) ]]; do\
   cd ..;\
   echo \"../\";\
  done;"\
